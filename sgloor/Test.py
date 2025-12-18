@@ -1,10 +1,11 @@
 from pxr import Usd, UsdGeom, Gf
 import os
 
-def rotateBlenderAsset(asset):
+def processBlenderAsset(asset):
+  # Rotate the asset
   xform = UsdGeom.Xformable(asset)
   xform.AddRotateXOp().Set(-90)
-  return xform
+  return
 
 # Define a file path name:
 file_path = "_assets/test.usda"
@@ -18,12 +19,12 @@ shelf_path = "Shelf.usdc"
 # Reference the Box into the scene
 box_prim = stage.DefinePrim("/World/Box", "Xform")
 box_prim.GetReferences().AddReference(box_path)
-rotateBlenderAsset(box_prim)
+processBlenderAsset(box_prim)
 
 # Reference the Shelf into the scene
 shelf_prim = stage.DefinePrim("/World/Shelf", "Xform")
 shelf_prim.GetReferences().AddReference(shelf_path)
-rotateBlenderAsset(shelf_prim)
+processBlenderAsset(shelf_prim)
 
 # Save the stage
 stage.GetRootLayer().Save()
