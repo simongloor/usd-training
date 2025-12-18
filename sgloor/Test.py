@@ -1,5 +1,10 @@
-from pxr import Usd
+from pxr import Usd, UsdGeom, Gf
 import os
+
+def rotateBlenderAsset(asset):
+  xform = UsdGeom.Xformable(asset)
+  xform.AddRotateXOp().Set(-90)
+  return xform
 
 # Define a file path name:
 file_path = "_assets/test.usda"
@@ -13,17 +18,12 @@ shelf_path = "Shelf.usdc"
 # Reference the Box into the scene
 box_prim = stage.DefinePrim("/World/Box", "Xform")
 box_prim.GetReferences().AddReference(box_path)
-
-# Rotate the Box 90 degrees around the X axis
-box_prim.AddRotateXOp().Set(-90)
+rotateBlenderAsset(box_prim)
 
 # Reference the Shelf into the scene
 shelf_prim = stage.DefinePrim("/World/Shelf", "Xform")
 shelf_prim.GetReferences().AddReference(shelf_path)
-shelf_prim.AddRotateXOp().Set(-90)
-
-# # Add a sphere at the origin
-# stage.DefinePrim("/World/Sphere", "Sphere")
+rotateBlenderAsset(shelf_prim)
 
 # Save the stage
 stage.GetRootLayer().Save()
