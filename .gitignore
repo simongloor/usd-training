@@ -1,3 +1,5 @@
 # exclude the usd_root folder
 usd_root/
 python-usd-venv/
+*.hipnc
+_assets/render/
