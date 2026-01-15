@@ -1,14 +1,8 @@
 from pxr import Usd, UsdGeom, Gf
 import os
 
-def processBlenderAsset(asset):
-  # Rotate the asset
-  xform = UsdGeom.Xformable(asset)
-  xform.AddRotateXOp().Set(-90)
-  return
-
 # Define a file path name:
-file_path = "_assets/test.usda"
+file_path = "_assets/Factory_Layout_Base.usda"
 # Create a stage at the given `file_path`:
 stage: Usd.Stage = Usd.Stage.CreateNew(file_path)
 
