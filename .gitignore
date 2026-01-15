@@ -3,4 +3,4 @@ usd_root/
 python-usd-venv/
 *.hipnc
 _assets/render/
-composition_arcs/
+tutorial_content/
