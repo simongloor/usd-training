@@ -2,5 +2,5 @@
 usd_root/
 python-usd-venv/
 *.hipnc
-_assets/render/
+_assets/_exercises/houdini
 tutorial_content/
